@@ -17,7 +17,7 @@
 <ジャンル、読了時間に合わせて読む本を探したい時>
 
 ## 設計書
-<...>
+機能実装リストURL https://docs.google.com/spreadsheets/d/1soiBq-Xj4MlaBzp1Jr76XRXyBy9Lth4FWUwoQQyTQ_c/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
