@@ -34,7 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
 
       # 追加したカラム
       t.string :name, null: false
-      t.text :profile_image_url, null: false
       t.boolean :is_deleted, null: false, default: false
 
 
