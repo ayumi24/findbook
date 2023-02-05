@@ -33,8 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       # 追加したカラム
-      t.string :name, null: false
-      t.boolean :is_deleted, null: false, default: false
+      t.string :name, null: false #ニックネームを設定
+      t.text :profile_image_url #プロフィール画像は会員情報編集画面で編集
+      t.boolean :is_deleted, null: false, default: false #退会フラグ
 
 
       t.timestamps null: false

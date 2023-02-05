@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User::RegistrationsController < Devise::RegistrationsController
-  def after_inactive_sign_up_path_for(resource)
-    root_path(resource)
+  def after_sign_up_path_for(resource)
+    user_homes_about_path
   end
 
   # before_action :configure_sign_up_params, only: [:create]
