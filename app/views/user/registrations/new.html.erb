@@ -4,12 +4,22 @@
   <%= render "user/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :ニックネーム %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :プロフィール画像 %><br>
+    <%= f.file_field :profile_image, placeholder:"プロフィール画像",accept: "image/*" %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -17,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -26,4 +36,5 @@
   </div>
 <% end %>
 
-<%= render "user/shared/links" %>
+<h3>既に登録済みの方</h3>
+<%= link_to 'こちら', new_user_session_path %>からログインしてください
