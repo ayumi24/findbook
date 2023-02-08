@@ -1,6 +1,6 @@
-<%= form_tag(user_books_search_path, method: :get) do %>
+<%= form_with url: user_books_search_path, method: :get do |f| %>
   <%= text_field_tag :title, @title %>
-  <%= button_tag type: "submit" %>
+  <%= f.submit "検索" %>
 <% end %>
 
 <table>

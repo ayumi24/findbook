@@ -21,6 +21,8 @@ class User::BooksController < ApplicationController
 
 private
 
+#カラムに対応する値を入れるようにコードを記述する
+#設定したカラム名と同じ名前を記述すること
   def read(result)
     title = result["title"]
     author = result["author"]
