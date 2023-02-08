@@ -10,6 +10,8 @@
     <td><%= image_tag book.book_image_url %></td>
     <td><%= book.title %></td>
     <td><%= book.author %></td>
+    <td><%= book.isbn %></td>
+    <td><%= link_to "レビュー作成", new_user_post_path(isbn: book.isbn) %></td>
   </tr>
   <% end %>
 <% end %>
