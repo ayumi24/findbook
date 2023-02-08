@@ -5,7 +5,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       #追加したカラム
       t.string :title
       t.string :author
-      t.string :isbn, null: false
+      t.biginit :isbn, null: false
       t.text :book_url
       t.text :book_image_url
 
