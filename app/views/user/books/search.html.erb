@@ -3,10 +3,14 @@
   <%= button_tag type: "submit" %>
 <% end %>
 
+<table>
 <% if @books %>
   <% @books.each do |book| %>
-    <%= image_tag book.book_image_url %>
-    <%= book.title %>
-    <%= book.author %>
+  <tr>
+    <td><%= image_tag book.book_image_url %></td>
+    <td><%= book.title %></td>
+    <td><%= book.author %></td>
+  </tr>
   <% end %>
 <% end %>
+</table>
