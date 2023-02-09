@@ -1,0 +1,10 @@
+<h3>レビューした書籍</h3>
+<table>
+<% @posts.each do |posts| %>
+<tr>
+  <td><%= posts.title %></td>
+  <td><%= posts.author %></td>
+</tr>
+
+<% end %>
+</table>

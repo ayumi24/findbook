@@ -1,5 +1,16 @@
-<h1>レビュー作成</h1>
-<%= form_with model: @book, url: new_user_post_path do |f| %>
-
+<% @books.each do |book| %>
+  <%= book['title'] %>
+<% end %>
+<%= @books.to_a[0]['title'] %>
+<h3>レビュー作成</h3>
+<%= form_with model: @post, url: new_public_post_path, method: :get do |f| %>
+<h4>感想</h4>
+<%= f.text_area :comment,  class: 'form-control',size: "100x10" %>
+<h4>タグ</h4>
+<p>最も当てはまると思うジャンルを選択してください</p>
+<h4>読了時間目安</h4>
+<%= f.text_field :readingtime %>時間
+<p>1時間未満の場合は小数点で入力してください。（例）30分の場合→0.5時間</p>
+<%= f.submit "レビューを作成" %>
 
 <% end %>

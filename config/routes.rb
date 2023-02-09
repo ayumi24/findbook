@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/about'
     get 'books/search'
-    resources :posts, only: [:new, :show, :edit, :update, :destroy]
+    resources :posts, only: [:new, :index, :show, :edit, :update, :destroy]
     resources :users, only: [:new, :show, :edit, :uodate, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
