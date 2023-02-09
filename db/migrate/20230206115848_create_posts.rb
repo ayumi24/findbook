@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       #追加したカラム
       t.text :comment
       t.string :readingtime
+      t.string :isbn
 
       t.timestamps
     end

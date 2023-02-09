@@ -1,6 +1,5 @@
-class User::PostsController < ApplicationController
+class Public::PostsController < ApplicationController
   def new
-
   end
 
   def show

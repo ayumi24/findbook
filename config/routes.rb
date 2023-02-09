@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "user/homes#top"
+  root to: "public/homes#top"
 
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
 
-  namespace :user do
+  namespace :public do
     get 'homes/about'
     get 'books/search'
     resources :posts, only: [:new, :show, :edit, :update, :destroy]

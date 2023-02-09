@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User::SessionsController < Devise::SessionsController
+class Public::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     user_homes_about_path
   end

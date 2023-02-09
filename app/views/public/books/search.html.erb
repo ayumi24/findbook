@@ -1,4 +1,4 @@
-<%= form_with url: user_books_search_path, method: :get do |f| %>
+<%= form_with url: public_books_search_path, method: :get do |f| %>
   <%= text_field_tag :title, @title %>
   <%= f.submit "検索" %>
 <% end %>
@@ -10,8 +10,8 @@
     <td><%= image_tag book.book_image_url %></td>
     <td><%= book.title %></td>
     <td><%= book.author %></td>
-    <td><%= book.isbn %></td>
-    <td><%= link_to "レビュー作成", new_user_post_path(isbn: book.isbn) %></td>
+    <td><% book.isbn %></td>
+    <td><%= link_to "レビュー作成", new_public_post_path(isbn: book.isbn) %></td>
   </tr>
   <% end %>
 <% end %>
