@@ -1,4 +1,5 @@
 <% @books.each do |book| %>
+  <% book['isbn'] %>
   <%= book['title'] %>
 <% end %>
 <%= @books.to_a[0]['title'] %>
