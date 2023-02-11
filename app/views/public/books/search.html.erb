@@ -7,11 +7,22 @@
 <% if @books %>
   <% @books.each do |book| %>
   <tr>
-    <td><%= image_tag book.book_image_url %></td>
+    <td><%= image_tag(book.book_image_url + '?_ex=70x70') %></td>
     <td><%= book.title %></td>
     <td><%= book.author %></td>
     <td><% book.isbn %></td>
-    <td><%= link_to "レビュー作成", new_public_post_path(isbn: book.isbn) %></td>
+    <td>
+      <% if current_user %>
+        <%= form_with model: book, url: new_public_post_path, method: :get do |f| %>
+          <%= f.hidden_field :book_image_url %>
+          <%= f.hidden_field :item_url %>
+          <%= f.hidden_field :title %>
+          <%= f.hidden_field :author %>
+          <%= f.hidden_field :isbn %>
+          <%= f.submit "レビューを書く", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </td>
   </tr>
   <% end %>
 <% end %>
