@@ -1,5 +1,7 @@
-<%= @book.inspect %><br>
-
-<% @posts.each do |post| %>
-    <%= post.inspect %><br>
-<% end %>
+<h3>書籍詳細</h3>
+<% @book.inspect %><br>
+<%= link_to public_book_path(@book.id) do %>
+<%= @book.title %>
+<% end %><br>
+<%= @book.author %><br>
+<%= image_tag @book.book_image_url, size: '250x300' %>

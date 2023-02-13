@@ -21,10 +21,12 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = current_customer.posts
+    @posts = current_user.posts
   end
 
   def show
+    @book = Book.includes(:posts).find(params[:id])
+    @posts = @book.posts
   end
 
   def edit
@@ -45,7 +47,7 @@ class Public::PostsController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :author, :isbn, :item_url, :book_image_url)
   end
-  
+
   def correct_user
     @post = current_user.posts.find_by(id: params[:id])
     redirect_to root_url unless @post

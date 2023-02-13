@@ -2,9 +2,8 @@
 <table>
 <% @posts.each do |posts| %>
 <tr>
-  <td><%= posts.title %></td>
-  <td><%= posts.author %></td>
+  <td><%= posts.comment %></td>
+  <td><%= posts.readingtime %>時間</td>
 </tr>
-
 <% end %>
 </table>

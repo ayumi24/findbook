@@ -1,2 +1,9 @@
-<h1>User::Posts#show</h1>
-<p>Find me in app/views/user/posts/show.html.erb</p>
+<% @book.inspect %><br>
+<%= @book.title %><br>
+<%= @book.author %><br>
+<%= image_tag @book.book_image_url, size: '250x300' %><br>
+
+<% @posts.each do |post| %>
+    <%= post.comment %><br>
+    <%= post.readingtime %>時間
+<% end %>
