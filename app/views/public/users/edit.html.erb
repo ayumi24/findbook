@@ -1,2 +1,19 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<%= form_with model: @user, url: public_user_path(@user.id), method: :patch do |f| %>
+<h4><%= @user.name %>のユーザー情報編集</h4>
+  <table class="table-borderless">
+    <%= f.label :ニックネーム %>
+    <%= f.text_field :name %>
+  </table>
+
+  <table class="table-borderless">
+    <%= f.label :プロフィール画像 %>
+    <%= f.file_field :profile_image_url, accept: "image/*" %>
+  </table>
+
+  <table class="table-borderless">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </table>
+
+<%= f.submit "保存する", class: "btn btn-sm btn-success" %>
+<% end %>
