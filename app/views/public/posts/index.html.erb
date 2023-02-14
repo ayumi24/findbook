@@ -1,11 +1,15 @@
 <h3>レビューした書籍</h3>
 <table>
-<% @posts.each do |posts| %>
-<tr>
-  <td><%= posts.comment %></td>
-  <td><%= posts.readingtime %>時間</td>
-  <%= link_to '詳細', public_post_path(posts.id) %>
+  <tr>
+    <td><% @books.each do |books| %>
+      <%= books.title %><br>
+    <% end %></td>
+  <% @posts.each do |posts| %>
+    <td><%= posts.comment %></td>
+    <td><%= posts.readingtime %>時間</td>
+    <td><%= link_to '詳細', public_post_path(posts.id) %></td>
+  </tr>
 
-</tr>
 <% end %>
+
 </table>

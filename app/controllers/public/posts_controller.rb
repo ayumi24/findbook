@@ -21,6 +21,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
+    @books = Book.includes(:posts)
     @posts = current_user.posts
   end
 
