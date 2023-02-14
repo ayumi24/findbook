@@ -2,8 +2,28 @@
   <h2>マイページ</h2>
   <%= @user.name %>
   <%= link_to '情報を編集する', edit_public_user_path, class: "btn btn-sm btn-primary" %>
-  <h2>レビューした本</h2>
-  <%= link_to '新しく本を探す', public_books_search_path %>
+<h3>レビューした書籍</h3>
+ <%= link_to '新しく本を探す', public_books_search_path %>
+<table>
+  <thead>
+    <th>タイトル</th>
+    <th>著者</th>
+    <th>詳細</th>
+  </thead>
+  <tbody>
+    <% @books.each do |books| %>
+    <tr>
+    <td><%= books.title %></td>
+    <td><%= books.author %></td>
+    <td><% books.posts.each do |posts| %>
+    <%= link_to '詳細', public_post_path(posts.id) %>
+    <% end %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 </div>
 
 
