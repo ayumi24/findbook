@@ -1,2 +1,6 @@
-<h1>User::Posts#edit</h1>
-<p>Find me in app/views/user/posts/edit.html.erb</p>
+<h3>レビューを編集する</h3>
+<%= form_with model: @post, url: public_post_path, method: :patch do |f| %>
+<%= f.text_field :comment %><br>
+<%= f.text_field :readingtime %>時間<br>
+<%= f.submit '編集完了' %>
+<% end %>

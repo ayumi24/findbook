@@ -3,6 +3,7 @@ class Public::BooksController < ApplicationController
   #isbnコードがあればその他の情報も取得できる為コードの簡略化ができそうである
   def show
     @book = Book.find(params[:id])
+    @posts = Post.all
   end
 
   def search

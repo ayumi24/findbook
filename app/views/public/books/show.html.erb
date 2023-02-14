@@ -5,3 +5,6 @@
 <% end %><br>
 <%= @book.author %><br>
 <%= image_tag @book.book_image_url, size: '250x300' %>
+<% @posts.each do |posts| %>
+<%= posts.comment %>
+<%= posts.readingtime %>
