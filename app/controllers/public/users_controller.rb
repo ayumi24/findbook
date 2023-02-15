@@ -13,7 +13,7 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    user = current_user
+    @user = current_user
     user.update(user_params)
     redirect_to public_user_path(user.id)
   end

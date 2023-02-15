@@ -7,5 +7,6 @@
 <%= @post.readingtime %>時間<br>
 <%= link_to 'レビューを編集', edit_public_post_path(@post.id) %>
 <% if @post.user == current_user %>
- <%= link_to '削除', public_post_path(@post), method: :delete %>
+ <%= link_to '削除', public_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <% end %>
+
