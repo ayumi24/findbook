@@ -4,13 +4,13 @@
 <%= image_tag(@book.book_image_url + '?_ex=300x300', class: "img-fluid") %>
 
 <h3>レビュー作成</h3>
-<%= form_with model: @book, url: public_posts_path, method: :post do |f| %>
-  <%= @book.errors.full_messages.inspect %>
-  <%= f.hidden_field :book_image_url %>
-  <%= f.hidden_field :item_url %>
-  <%= f.hidden_field :title %>
-  <%= f.hidden_field :author %>
-  <%= f.hidden_field :isbn %>
+  <%= form_with model: @book, url: public_posts_path, method: :post do |f| %>
+    <%= @book.errors.full_messages.inspect %>
+    <%= f.hidden_field :book_image_url %>
+    <%= f.hidden_field :item_url %>
+    <%= f.hidden_field :title %>
+    <%= f.hidden_field :author %>
+    <%= f.hidden_field :isbn %>
 
   <%= fields_for :post do |ff| %>
     <%= ff.hidden_field :user_id, value: current_user.id %>

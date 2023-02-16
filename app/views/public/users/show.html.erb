@@ -16,9 +16,7 @@
     <tr>
     <td><%= books.title %></td>
     <td><%= books.author %></td>
-    <td><% books.posts.each do |posts| %>
-    <%= link_to '詳細', public_post_path(posts.id) %>
-    <% end %></td>
+    <td><%= link_to '詳細', public_book_path(books.id) %></td>
     </tr>
     <% end %>
   </tbody>

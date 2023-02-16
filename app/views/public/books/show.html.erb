@@ -8,4 +8,5 @@
 <% @posts.each do |posts| %>
 <%= posts.comment %>
 <%= posts.readingtime %>
+<%= link_to "詳細", public_post_path(posts.id) %>
 <% end %>
