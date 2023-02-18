@@ -28,8 +28,6 @@ class Public::PostsController < ApplicationController
   end
 
   def show
-    @book = Book.includes(:posts).find(params[:id])
-    @posts = @book.posts
     @post = Post.find(params[:id])
   end
 

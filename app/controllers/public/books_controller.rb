@@ -1,6 +1,4 @@
 class Public::BooksController < ApplicationController
-  #書籍の情報は外部APIを使用して情報を取得している為コントローラは必要でもモデルは無くても良い
-  #isbnコードがあればその他の情報も取得できる為コードの簡略化ができそうである
   def show
     @book = Book.find(params[:id])
     @posts = @book.posts

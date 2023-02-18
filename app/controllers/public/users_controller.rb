@@ -14,8 +14,8 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = current_user
-    user.update(user_params)
-    redirect_to public_user_path(user.id)
+    @user.update(user_params)
+    redirect_to public_user_path(@user.id)
   end
 
   def destroy

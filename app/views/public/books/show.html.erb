@@ -4,9 +4,9 @@
 <%= @book.title %>
 <% end %><br>
 <%= @book.author %><br>
-<%= image_tag @book.book_image_url, size: '250x300' %>
+<%= image_tag @book.book_image_url, size: '250x300' %><br>
 <% @posts.each do |posts| %>
-<%= posts.comment %>
-<%= posts.readingtime %>
-<%= link_to "詳細", public_post_path(posts.id) %>
+<%= posts.comment %><br>
+<%= posts.readingtime %>時間<br>
+<%= link_to "詳細", public_post_path(posts.id) %><br>
 <% end %>
