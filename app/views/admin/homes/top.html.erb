@@ -1,1 +1,26 @@
 <h2>管理者側TOPページ</h2>
+<h3>会員一覧</h3>
+<table>
+  <thead>
+    <th>会員ID</th>
+    <th>ニックネーム</th>
+    <th>メールアドレス</th>
+    <th>ステータス</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= link_to admin_user_path(user.id) do %>
+      <%= user.name %>
+      <% end %></td>
+      <td><%= user.email %></td>
+      <td><% if user.is_deleted == false %>
+      有効
+      <% else %>
+      退会
+      <% end %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

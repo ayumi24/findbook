@@ -1,0 +1,20 @@
+<%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+<h2><%= @user.name %>さんのユーザー情報編集</h2>
+
+<div class="field">
+  <%= f.label :ニックネーム %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :メールアドレス %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
+
+<div class="field">
+  <%= f.radio_button :is_deleted, "false" %>
+  <%= f.label :is_deleted_false, "有効" %>
+  <%= f.radio_button :is_deleted, "true" %>
+  <%= f.label :is_deleted_false, "退会" %>
+</div>
+<% end %>
