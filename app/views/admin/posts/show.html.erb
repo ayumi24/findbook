@@ -1,2 +1,4 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<h2>レビュー詳細</h2>
+<%= @post.comment %>
+<%= @post.readingtime %>
+<%= link_to "削除", admin_post_path(@post.id), method: :delete,"data-confirm"=>"本当に削除しますか？" %>

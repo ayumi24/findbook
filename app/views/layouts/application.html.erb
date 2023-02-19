@@ -14,7 +14,7 @@
     <header>
       <% if admin_signed_in? %>
         <li>
-          <%= link_to "全ての投稿", admin_posts_path %>
+          <%= link_to "全てのレビュー", admin_posts_path %>
         </li>
         <li>
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
