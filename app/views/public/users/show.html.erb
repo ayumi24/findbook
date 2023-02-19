@@ -16,9 +16,9 @@
   <tbody>
     <% @books.each do |books| %>
     <tr>
-    <td><%= books.title %></td>
+    <td><%= link_to books.title, public_book_path(books.id) %></td>
     <td><%= books.author %></td>
-    <td><%= link_to '詳細', public_book_path(books.id) %></td>
+    <td><%= link_to '詳細', public_post_path(posts_user_id(books.posts, @user.id)) %></td>
     </tr>
     <% end %>
   </tbody>
