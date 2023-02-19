@@ -1,12 +1,15 @@
 <h3>書籍詳細</h3>
 <% @book.inspect %><br>
-<%= link_to public_book_path(@book.id) do %>
-<%= @book.title %>
-<% end %><br>
-<%= @book.author %><br>
-<%= image_tag @book.book_image_url, size: '250x300' %><br>
-<% @posts.each do |posts| %>
-<%= posts.comment %><br>
-<%= posts.readingtime %>時間<br>
-<%= link_to "詳細", public_post_path(posts.id) %><br>
-<% end %>
+  <%= link_to public_book_path(@book.id) do %>
+    <%= @book.title %>
+  <% end %><br>
+    <%= @book.author %><br>
+    <%= image_tag @book.book_image_url, size: '250x300' %><br>
+  <% @posts.each do |posts| %>
+    <%= link_to public_user_path(posts.user) do %>
+      <%= image_tag posts.user.get_profile_image(50,50) %>
+    <% end %>
+    <%= posts.comment %>
+    <%= posts.readingtime %>時間
+    <%= link_to "詳細", public_post_path(posts.id) %><br>
+  <% end %>
