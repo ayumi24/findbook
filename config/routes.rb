@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
     resources :users, only: [:show, :edit, :update]
+    resources :posts, only: [:index, :show, :destroy]
   end
 
   namespace :public do
