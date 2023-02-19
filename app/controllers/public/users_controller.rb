@@ -18,7 +18,10 @@ class Public::UsersController < ApplicationController
     redirect_to public_user_path(@user.id)
   end
 
-  def destroy
+  def withdraw
+    current_user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
   private

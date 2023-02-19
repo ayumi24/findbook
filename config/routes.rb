@@ -19,7 +19,12 @@ Rails.application.routes.draw do
     get 'books/search'
     resources :books, only: [:show]
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
-    resources :users, only: [:new, :show, :edit, :update, :destroy]
+    resources :users, only: [:new, :show, :edit, :update] do
+      collection do
+        get :unsubscribe
+        patch :withdraw
+      end
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
