@@ -1,4 +1,5 @@
 <%= form_with model: @user, url: public_user_path(@user.id), method: :patch do |f| %>
+<div class="container">
 <h4><%= @user.name %>のユーザー情報編集</h4>
   <table class="table-borderless">
     <%= f.label :ニックネーム %>
@@ -16,5 +17,6 @@
   </table>
 
 <%= f.submit "保存する", class: "btn btn-sm btn-success" %>
-<%= link_to "退会する", unsubscribe_public_users_path %>
+<%= link_to "退会する", unsubscribe_public_users_path, class: "btn btn-sm btn-danger" %>
 <% end %>
+</div>
