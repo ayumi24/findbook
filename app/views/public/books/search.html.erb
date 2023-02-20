@@ -1,29 +1,31 @@
 <%= form_with url: public_books_search_path, method: :get do |f| %>
+<div class="container">
   <%= text_field_tag :title, @title %>
   <%= f.submit "検索" %>
 <% end %>
 
-<table>
-<% if @books %>
-  <% @books.each do |book| %>
-  <tr>
-    <td><%= image_tag(book.book_image_url + '?_ex=70x70') %></td>
-    <td><%= book.title %></td>
-    <td><%= book.author %></td>
-    <td><% book.isbn %></td>
-    <td>
-      <% if current_user %>
-        <%= form_with model: book, url: new_public_post_path, method: :get do |f| %>
-          <%= f.hidden_field :book_image_url %>
-          <%= f.hidden_field :item_url %>
-          <%= f.hidden_field :title %>
-          <%= f.hidden_field :author %>
-          <%= f.hidden_field :isbn %>
-          <%= f.submit "レビューを書く", class: "btn btn-primary" %>
+  <table class="table table-striped">
+  <% if @books %>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= image_tag(book.book_image_url + '?_ex=70x70') %></td>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><% book.isbn %></td>
+      <td>
+        <% if current_user %>
+          <%= form_with model: book, url: new_public_post_path, method: :get do |f| %>
+            <%= f.hidden_field :book_image_url %>
+            <%= f.hidden_field :item_url %>
+            <%= f.hidden_field :title %>
+            <%= f.hidden_field :author %>
+            <%= f.hidden_field :isbn %>
+            <%= f.submit "レビューを書く", class: "btn btn-primary" %>
+          <% end %>
         <% end %>
-      <% end %>
-    </td>
-  </tr>
+      </td>
+    </tr>
+    <% end %>
   <% end %>
-<% end %>
-</table>
+  </table>
+</div>
