@@ -1,12 +1,19 @@
-<h2>投稿一覧</h2>
-<table>
-  <tbody>
-    <% @posts.each do |posts| %>
-      <tr>
-        <td><%= posts.comment %></td>
-        <td><%= posts.readingtime %>時間</td>
-        <td><%= link_to "詳細", admin_post_path(posts.id) %></td>
-      </tr>
-      <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <h2>投稿一覧</h2>
+  <table class="table table-striped">
+    <thead>
+      <th class="text-center">感想</th>
+      <th>読了時間</th>
+      <th>詳細</th>
+    </thead>
+    <tbody>
+      <% @posts.each do |posts| %>
+        <tr>
+          <td class="text-center"><%= posts.comment %></td>
+          <td><%= posts.readingtime %>時間</td>
+          <td><%= link_to "詳細", admin_post_path(posts.id) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

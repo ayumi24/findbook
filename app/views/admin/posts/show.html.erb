@@ -1,9 +1,22 @@
 <h2>レビュー詳細</h2>
-<% @post.book.inspect %><br>
-<%= @post.book.title %><br>
-<%= @post.book.author %><br>
-<%= image_tag @post.book.book_image_url, size: '230x300' %><br>
-
-<%= @post.comment %>
-<%= @post.readingtime %>時間
-<%= link_to "削除", admin_post_path(@post.id), method: :delete,"data-confirm"=>"本当に削除しますか？" %>
+<div class="container">
+    <% @post.book.inspect %><br>
+    <%= @post.book.title %><br>
+    <%= @post.book.author %><br>
+    <%= image_tag @post.book.book_image_url, size: '230x300' %><br>
+  <div class="row">
+    <table>
+      <thead>
+        <th class="text-center">感想</th>
+        <th>読了時間</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @post.comment %></td>
+          <td><%= @post.readingtime %>時間</td>
+          <td><%= link_to "削除", admin_post_path(@post.id), method: :delete,"data-confirm"=>"本当に削除しますか？" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
