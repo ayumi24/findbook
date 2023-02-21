@@ -1,16 +1,16 @@
 <div class="container">
-  <h2>投稿一覧</h2>
+  <h3>投稿一覧</h3>
   <table class="table table-striped">
     <thead>
       <th class="text-center">感想</th>
-      <th>読了時間</th>
-      <th>詳細</th>
+      <th class="text-center">読了時間（時）</th>
+      <th></th>
     </thead>
     <tbody>
       <% @posts.each do |posts| %>
         <tr>
-          <td class="text-center"><%= posts.comment %></td>
-          <td><%= posts.readingtime %>時間</td>
+          <td class="text-center col-9"><%= posts.comment %></td>
+          <td class="text-center col-2"><%= posts.readingtime %></td>
           <td><%= link_to "詳細", admin_post_path(posts.id) %></td>
         </tr>
         <% end %>
