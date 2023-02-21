@@ -1,7 +1,7 @@
 <%= form_with url: public_books_search_path, method: :get do |f| %>
 <div class="container">
   <%= text_field_tag :title, @title %>
-  <%= f.submit "検索" %>
+  <%= f.submit "検索", class: "btn btn-sm btn-primary" %>
 <% end %>
 
   <table class="table table-striped">

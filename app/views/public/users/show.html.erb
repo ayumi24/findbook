@@ -1,24 +1,24 @@
 <div class="container">
   <h2>マイページ</h2>
-  <%= @user.name %>
-  <%= image_tag @user.get_profile_image(70,70) %>
+    <%= image_tag @user.get_profile_image(90,90) %>
+    <%= @user.name %>
   <% if @user == current_user %>
   　<%= link_to '情報を編集する', edit_public_user_path, class: "btn btn-sm btn-primary" %>
   <% end %>
-<h3>レビューした書籍</h3>
- <%= link_to '新しく本を探す', public_books_search_path %>
+<h4>レビューした書籍</h4>
+ <%= link_to '新しく本を探す', public_books_search_path, class: "btn btn-sm btn-dark" %>
 <table>
   <thead>
-    <th>タイトル</th>
-    <th>著者</th>
-    <th>詳細</th>
+    <th class="text-center col-5">タイトル</th>
+    <th class="text-center col-5">著者</th>
+    <th class="text-center col-2">詳細</th>
   </thead>
   <tbody>
     <% @books.each do |books| %>
     <tr>
-    <td><%= link_to books.title, public_book_path(books.id) %></td>
-    <td><%= books.author %></td>
-    <td><%= link_to '詳細', public_post_path(posts_user_id(books.posts, @user.id)) %></td>
+    <td class="text-center"><%= link_to books.title, public_book_path(books.id) %></td>
+    <td class="text-center"><%= books.author %></td>
+    <td class="text-center"><%= link_to '詳細', public_post_path(posts_user_id(books.posts, @user.id)) %></td>
     </tr>
     <% end %>
   </tbody>
