@@ -1,4 +1,9 @@
 <h2>レビュー詳細</h2>
+<% @post.book.inspect %><br>
+<%= @post.book.title %><br>
+<%= @post.book.author %><br>
+<%= image_tag @post.book.book_image_url, size: '230x300' %><br>
+
 <%= @post.comment %>
-<%= @post.readingtime %>
+<%= @post.readingtime %>時間
 <%= link_to "削除", admin_post_path(@post.id), method: :delete,"data-confirm"=>"本当に削除しますか？" %>
