@@ -2,7 +2,7 @@
   <div class="row ml-5">
     <h3>会員ログイン</h3>
   </div>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_with model: @user, url: new_user_session_path do |f| %>
 
         <div class="field text-center my-2">
           <%= f.label :ニックネーム %>

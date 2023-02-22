@@ -12,34 +12,47 @@
 
   <body>
     <header>
-    <nav class="navbar navbar-expand-lg">
-      <ul class="nav justify-content-end">
-      <% if admin_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "全てのレビュー", admin_posts_path, class: 'nav-link text-dark'  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark'  %>
-        </li>
-      <% end %>
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "マイページ", public_user_path(current_user), class: 'nav-link text-dark'  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark'  %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark'  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark'  %>
-        </li>
-      <% end %>
-      </ul>
+      <nav class="navbar navbar-expand-lg">
+        <ul class="nav justify-content-end">
+            <% if admin_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "会員一覧", admin_homes_top_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "全てのレビュー", admin_posts_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "本を探す", public_books_search_path, class: 'nav-link text-dark' %>
+              </li>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "マイページ", public_user_path(current_user), class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+              </li>
+            <% end %>
+            <% end %>
+        </ul>
       </nav>
-      </header>
+  </header>
     <%= yield %>
   </body>
 </html>

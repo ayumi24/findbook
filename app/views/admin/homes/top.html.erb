@@ -1,21 +1,21 @@
-<h2>管理者側TOPページ</h2>
+<div class="container">
 <h3>会員一覧</h3>
 <table>
   <thead>
-    <th>会員ID</th>
-    <th>ニックネーム</th>
-    <th>メールアドレス</th>
-    <th>ステータス</th>
+    <th class="text-center">会員ID</th>
+    <th class="text-center">ニックネーム</th>
+    <th class="text-center">メールアドレス</th>
+    <th class="text-center">ステータス</th>
   </thead>
   <tbody>
     <% @users.each do |user| %>
     <tr>
-      <td><%= user.id %></td>
-      <td><%= link_to admin_user_path(user.id) do %>
+      <td class="text-center col-2"><%= user.id %></td>
+      <td class="text-center col-3"><%= link_to admin_user_path(user.id) do %>
       <%= user.name %>
       <% end %></td>
-      <td><%= user.email %></td>
-      <td><% if user.is_deleted == false %>
+      <td class="text-center col-5"><%= user.email %></td>
+      <td class="text-center col-4"><% if user.is_deleted == false %>
       有効
       <% else %>
       退会
@@ -24,3 +24,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

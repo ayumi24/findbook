@@ -1,20 +1,43 @@
-<%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
-<h2><%= @user.name %>さんのユーザー情報編集</h2>
+<div class="container">
+  <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+  <div class="row my-2">
+    <h3><%= @user.name %>さんのユーザー情報編集</h3>
+  </div>
 
-<div class="field">
-  <%= f.label :ニックネーム %>
-  <%= f.text_field :name %>
-</div>
+  <div class="row mx-2">
+    <div class="col-2">
+      <%= f.label :ニックネーム %>
+    </div>
+    <div class="col-2">
+      <%= f.text_field :name %>
+    </div>
+  </div>
 
-<div class="field">
-  <%= f.label :メールアドレス %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
+  <div class="row mx-2 mt-2">
+    <div class="col-2">
+      <%= f.label :メールアドレス %>
+    </div>
+    <div class="col-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
 
-<div class="field">
-  <%= f.radio_button :is_deleted, "false" %>
-  <%= f.label :is_deleted_false, "有効" %>
-  <%= f.radio_button :is_deleted, "true" %>
-  <%= f.label :is_deleted_false, "退会" %>
-</div>
+  <div class="row mx-2 mt-2">
+    <div class="col-2">
+      <%= f.radio_button :is_deleted, "false" %>
+      <%= f.label :is_deleted_false, "有効" %>
+    </div>
+  </div>
+  <div class="row mx-2 mt-2">
+    <div class="col-2">
+      <%= f.radio_button :is_deleted, "true" %>
+      <%= f.label :is_deleted_false, "退会" %>
+    </div>
+  </div>
+  <div class="row mx-2 mt-2">
+    <div class="col-2">
+      <%= f.submit "登録", class: "btn btn-sm btn-success" %>
+    </div>
+  </div>
 <% end %>
+</div>
