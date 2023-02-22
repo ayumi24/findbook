@@ -2,16 +2,16 @@
   <h2>マイページ</h2>
     <%= image_tag @user.get_profile_image(90,90) %>
     <%= @user.name %>
-  <% if @user == current_user %>
-  　<%= link_to '情報を編集する', edit_public_user_path, class: "btn btn-sm btn-primary" %>
-  <% end %>
+    <% if @user == current_user %>
+      <%= link_to '情報を編集する', edit_public_user_path, class: "btn btn-sm btn-primary" %>
+    <% end %>
 <h4>レビューした書籍</h4>
  <%= link_to '新しく本を探す', public_books_search_path, class: "btn btn-sm btn-dark" %>
-<table>
+<table class="mt-4">
   <thead>
     <th class="text-center col-5">タイトル</th>
     <th class="text-center col-5">著者</th>
-    <th class="text-center col-2">詳細</th>
+    <th class="text-center col-2">レビュー詳細</th>
   </thead>
   <tbody>
     <% @books.each do |books| %>
@@ -23,8 +23,6 @@
     <% end %>
   </tbody>
 </table>
-
-
 </div>
 
 
