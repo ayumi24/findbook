@@ -6,23 +6,25 @@
       <%= link_to '情報を編集する', edit_public_user_path, class: "btn btn-sm btn-primary" %>
     <% end %>
 <h4>レビューした書籍</h4>
- <%= link_to '新しく本を探す', public_books_search_path, class: "btn btn-sm btn-dark" %>
-<table class="mt-4">
-  <thead>
-    <th class="text-center col-5">タイトル</th>
-    <th class="text-center col-5">著者</th>
-    <th class="text-center col-2">レビュー詳細</th>
-  </thead>
-  <tbody>
-    <% @books.each do |books| %>
-    <tr>
-    <td class="text-center"><%= link_to books.title, public_book_path(books.id) %></td>
-    <td class="text-center"><%= books.author %></td>
-    <td class="text-center"><%= link_to '詳細', public_post_path(posts_user_id(books.posts, @user.id)) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% if @user == current_user %>
+   <%= link_to '新しく本を探す', public_books_search_path, class: "btn btn-sm btn-dark" %>
+  <% end %>
+  <table class="mt-4">
+    <thead>
+      <th class="text-center col-5">タイトル</th>
+      <th class="text-center col-5">著者</th>
+      <th class="text-center col-2">レビュー詳細</th>
+    </thead>
+    <tbody>
+      <% @books.each do |books| %>
+      <tr>
+      <td class="text-center"><%= link_to books.title, public_book_path(books.id) %></td>
+      <td class="text-center"><%= books.author %></td>
+      <td class="text-center"><%= link_to '詳細', public_post_path(posts_user_id(books.posts, @user.id)) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 
