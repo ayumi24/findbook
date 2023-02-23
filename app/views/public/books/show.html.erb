@@ -1,15 +1,29 @@
-<h3>書籍詳細</h3>
-<% @book.inspect %><br>
-  <%= link_to public_book_path(@book.id) do %>
-    <%= @book.title %>
-  <% end %><br>
-    <%= @book.author %><br>
-    <%= image_tag @book.book_image_url, size: '250x300' %><br>
-  <% @posts.each do |posts| %>
-    <%= link_to public_user_path(posts.user) do %>
-      <%= image_tag posts.user.get_profile_image(50,50) %>
-    <% end %>
-    <%= posts.comment %>
-    <%= posts.readingtime %>時間
-    <%= link_to "詳細", public_post_path(posts.id) %><br>
-  <% end %>
+<div class="container">
+  <h3>書籍詳細</h3>
+    <% @book.inspect %>
+      <h5 class="mt-5"><%= @book.title %><br></h5>
+      <h5><%= @book.author %></h5><br>
+      <div style="text-align: center">
+        <%= image_tag @book.book_image_url, size: '250x300' %>
+      </div>
+    <table class="table table-hover">
+      <thead>
+        <th></th>
+        <th>感想</th>
+        <th>読了時間（時）</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @posts.each do |posts| %>
+        <tr>
+          <td><%= link_to public_user_path(posts.user) do %>
+              <%= image_tag posts.user.get_profile_image(50,50) %>
+              <% end %></td>
+            <td><%= posts.comment %></td>
+            <td><%= posts.readingtime %>時間</td>
+            <td><%= link_to "詳細", public_post_path(posts.id) %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
