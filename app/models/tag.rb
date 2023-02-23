@@ -1,3 +1,3 @@
 class Tag < ApplicationRecord
-  has_many :books, dependent: :destroy
+  has_many :posts, dependent: :destroy
 end

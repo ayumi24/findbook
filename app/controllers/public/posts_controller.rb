@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  before_action :correct_user, only: %i(show edit update destroy)
+  before_action :correct_user, only: %i(destroy)
   def new
     @book = Book.find_or_initialize_by(isbn: params[:book][:isbn])
     post = @book.posts.where(user_id: current_user.id)
