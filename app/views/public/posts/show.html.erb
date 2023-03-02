@@ -15,6 +15,7 @@
       <tbody>
         <td class="text-center col-7"><%= @post.comment %></td>
         <td class="text-center col-2"><%= @post.readingtime %></td>
+        <td class="text-center col-2"><%= @tag.tagname %></td>
         <td class="text-center"><% if @post.user == current_user %>
               <%= link_to '編集', edit_public_post_path(@post.id), class: "btn btn-sm btn-success" %>
               <%= link_to '削除', public_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>

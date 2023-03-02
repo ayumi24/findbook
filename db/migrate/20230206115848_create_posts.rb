@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       #追加したカラム
       t.text :comment
       t.string :readingtime
+      t.integer :tag_id
       t.references :user, null: false, foreign_key: true
       t.references :book, null: false, foreign_key: true
 

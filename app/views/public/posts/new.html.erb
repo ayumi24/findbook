@@ -22,6 +22,7 @@
       <%= ff.text_area :comment,  class: 'form-control',size: "80x5" %>
       <h6>タグ</h6>
       <p>最も当てはまると思うジャンルを選択してください</p>
+      <%= ff.collection_select(:tag_id, @tags, :id, :tagname) %>
       <h6>読了時間目安</h6>
       <%= ff.text_field :readingtime %>時間
       <p>1時間未満の場合は小数点で入力してください。（例）30分の場合→0.5時間</p>

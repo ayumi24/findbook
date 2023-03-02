@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2023_02_06_120456) do
   create_table "posts", force: :cascade do |t|
     t.text "comment"
     t.string "readingtime"
+    t.integer "tag_id"
     t.integer "user_id", null: false
     t.integer "book_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :correct_user, only: %i(destroy)
   def new
+    @tags = Tag.all
     @book = Book.find_or_initialize_by(isbn: params[:book][:isbn])
     post = @book.posts.where(user_id: current_user.id)
     redirect_to public_post_path(post.first) if post.exists?
@@ -15,7 +16,7 @@ class Public::PostsController < ApplicationController
       @book.save!
     end
     @post = @book.posts.build(post_params)
-    if @post.save
+    if @post.save!
       redirect_to public_book_path(@book)
     else
       render :new
@@ -29,6 +30,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @tag = Tag.find_by(id: @post.tag_id)
   end
 
   def edit
@@ -55,7 +57,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :comment, :readingtime)
+    params.require(:post).permit(:user_id, :comment, :readingtime, :tag_id)
   end
 
   def book_params

@@ -7,3 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(email: "ayumisasaki1124@gmail.com", password: "ayumi1124")
+
+Tag.create([
+  { tagname: "コメディ" },
+  { tagname: "ミステリ" },
+  { tagname: "アクション" },
+  { tagname: "エッセイ" },
+  { tagname: "ラブストーリー" },
+  { tagname: "SF" }
+
+  ])
