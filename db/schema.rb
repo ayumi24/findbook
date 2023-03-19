@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2023_03_19_103315) do
     t.text "comment"
     t.integer "user_id"
     t.integer "post_id"
-    t.integer "book_id", null: false
+    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_post_comments_on_book_id"

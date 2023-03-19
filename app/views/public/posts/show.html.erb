@@ -27,7 +27,7 @@
             <%= post_comment.user.name %>
             <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
           <% end %></td>
-          <td><%= form_with model: [@post, @post_comment] do |f| %>
+          <td><%= form_with model: [@post, @post_comment], url: public_post_post_comments_path(@post.id) do |f| %>
             <%= f.text_area :comment, rows: '5', placeholder: "コメントを入力" %>
             <%= f.submit "送信" %>
           <% end %></td>
