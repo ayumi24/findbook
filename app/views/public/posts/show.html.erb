@@ -21,5 +21,16 @@
               <%= link_to '編集', edit_public_post_path(@post.id), class: "btn btn-sm btn-success" %>
               <%= link_to '削除', public_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
             <% end %></td>
+        <tr>
+          <td><% @post.post_comments.each do |post_comment| %>
+            <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+            <%= post_comment.user.name %>
+            <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+          <% end %></td>
+          <td><%= form_with model: [@post, @post_comment] do |f| %>
+            <%= f.text_area :comment, rows: '5', placeholder: "コメントを入力" %>
+            <%= f.submit "送信" %>
+          <% end %></td>
+        </tr>
       </tbody>
 </div>

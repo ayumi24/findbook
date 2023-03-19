@@ -31,6 +31,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @tag = Tag.find_by(id: @post.tag_id)
+    @post_comment = PostComment.new
   end
 
   def edit

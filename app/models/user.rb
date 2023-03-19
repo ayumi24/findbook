@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          authentication_keys: [:name] #ユーザーログインでnameカラムを許可する
   has_many :posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   has_one_attached :profile_image
 

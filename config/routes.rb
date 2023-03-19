@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'post_comments/new'
+    get 'post_comments/create'
+    get 'post_comments/show'
+    get 'post_comments/destroy'
+  end
   root to: "public/homes#top"
 
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
@@ -20,7 +26,9 @@ Rails.application.routes.draw do
     get 'homes/about'
     get 'books/search'
     resources :books, only: [:show]
-    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      resources :post_comments, only: [:create, :destroy]
+    end
     resources :users, only: [:new, :show, :edit, :update] do
       collection do
         get :unsubscribe

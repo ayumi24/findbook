@@ -7,7 +7,7 @@
       <%= image_tag @post.book.book_image_url, size: '230x300' %>
     </div>
   <div class="row my-2">
-    <table class="table table-striped">
+    <table class="table">
       <thead>
         <th class="text-center">感想</th>
         <th class="text-center">読了時間</th>
@@ -19,6 +19,7 @@
           <td class="text-center col-2"><%= @post.readingtime %></td>
           <td><%= link_to "削除", admin_post_path(@post.id), method: :delete,"data-confirm"=>"本当に削除しますか？" %></td>
         </tr>
+
       </tbody>
     </table>
   </div>
