@@ -18,9 +18,22 @@ class Public::BooksController < ApplicationController
       end
     end
   end
+  
+  def create
+    @book = Book.find_or_initialize_by(isbn: params[:book][:isbn])
+    if @book.new_record?
+      @book.assign_attributes(book_params)
+      @book.save!
+    end
+
+    redirect_to public_book_path(@book.id)
+  end
 
 private
 
+  def book_params
+    params.require(:book).permit(:title, :author, :isbn, :item_url, :book_image_url)
+  end
 #カラムに対応する値を入れるようにコードを記述する
 #設定したカラム名と同じ名前を記述すること
   def read(result)

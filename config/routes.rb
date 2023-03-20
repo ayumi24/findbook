@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/about'
     get 'books/search'
-    resources :books, only: [:show]
+    resources :books, only: [:show, :create]
+    #post 'books/show_or_create'
+    #post 'books/:isbn/show_or_create/' => "books/show_or_create"
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resources :post_comments, only: [:create, :destroy]
     end

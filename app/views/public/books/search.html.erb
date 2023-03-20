@@ -10,7 +10,15 @@
     <%#= link_to book.title, public_book_path(book.id) %>
     <tr>
       <td><%= image_tag(book.book_image_url + '?_ex=70x70') %></td>
-      <td><%= book.title %></td>
+      <td>
+        <% if book.id %>
+          <!--book.idが存在する時はそのbookのshowpage行きのリンク-->
+          <%= link_to book.title, public_book_path(book) %>
+        <% else %>
+          <!--book.idが存在しない時はbookをcreateするリンク-->
+          <%= link_to book.title, public_books_path(params: { book: { title: book.title, author: book.author, isbn: book.isbn, item_url: book.item_url, book_image_url: book.book_image_url }}), method: :post %>
+        <% end %>
+      </td>
       <td><%= book.author %></td>
       <td><% book.isbn %></td>
       <td>
