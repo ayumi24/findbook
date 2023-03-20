@@ -1,35 +1,27 @@
 <div class="container">
   <% @post.book.inspect %>
-  <h5><%= @post.book.title %></h5><br>
-  <h5><%= @post.book.author %></h5><br>
   <div style="text-align: center">
-    <%= image_tag @post.book.book_image_url, size: '230x300' %><br>
+    <%= image_tag @post.book.book_image_url, size: '150x200' %><br>
   </div>
+  <h3><%= @post.book.title %></h3><br>
+  <h5>著者：<%= @post.book.author %></h5><br>
   <div class="row my-2">
-    <table class="table">
-      <thead>
-        <th class="text-center">感想</th>
-        <th class="text-center">読了時間</th>
-        <th class="text-center">ジャンル</th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-        <td class="text-center col-5"><%= @post.comment %></td>
-        <td class="text-center col-2"><%= @post.readingtime %></td>
-        <td class="text-center col-2"><%= @tag.tagname %></td>
-        <td class="text-center col-3"><% if @post.user == current_user %>
-              <%= link_to '編集', edit_public_post_path(@post.id), class: "btn btn-sm btn-success" %>
-              <%= link_to '削除', public_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
-            <% end %></td>
-        <td><% @post.post_comments.each do |post_comment| %>
-            <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
-            <%= post_comment.user.name %>
-            <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-          <% end %></td>
-        <td><%= form_with model: [@post, @post_comment], url: public_post_post_comments_path(@post.id) do |f| %>
-            <%= f.text_area :comment, placeholder: "コメントを入力" %>
-            <%= f.submit "送信" %>
-          <% end %></td>
-      </tbody>
+        <div class="text-center col-5"><%= @post.comment %></div>
+        <div class="text-center col-2"><%= @post.readingtime %>時間</div>
+        <div class="text-center col-2"><%= @tag.tagname %></div>
+        <div class="text-center col-3"><% if @post.user == current_user %>
+          <%= link_to '編集', edit_public_post_path(@post.id), class: "btn btn-sm btn-success" %>
+          <%= link_to '削除', public_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
+          <% end %></div>
+  </div>
+<div>
+  <% @post.post_comments.each do |post_comment| %>
+      <p><%= image_tag post_comment.user.get_profile_image(70,70) %>
+         <%= post_comment.user.name %>さんからのコメント<%= post_comment.created_at.strftime('%Y/%m/%d') %><br>
+         <%= post_comment.comment %>
+         <% end %></p>
+    <%= form_with model: [@post, @post_comment], url: public_post_post_comments_path(@post.id) do |f| %>
+         <%= f.text_area :comment, placeholder: "新しいコメントを入力" %>
+         <%= f.submit "送信" %>
+         <% end %>
 </div>
