@@ -10,10 +10,18 @@ Admin.create!(email: "ayumisasaki1124@gmail.com", password: "ayumi1124")
 
 Tag.create([
   { tagname: "コメディ" },
-  { tagname: "ミステリ" },
+  { tagname: "ミステリー" },
+  { tagname: "ファンタジー" },
   { tagname: "アクション" },
+  { tagname: "恋愛" },
+  { tagname: "SF" },
+  { tagname: "歴史小説" },
   { tagname: "エッセイ" },
-  { tagname: "ラブストーリー" },
-  { tagname: "SF" }
+  { tagname: "ノンフィクション" },
+  { tagname: "自己啓発" },
+  { tagname: "ビジネス" },
+  { tagname: "専門書" },
+  { tagname: "児童書" },
+  { tagname: "その他" }
 
   ])

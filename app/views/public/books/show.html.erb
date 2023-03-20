@@ -1,24 +1,19 @@
 <div class="container">
   <h3>書籍詳細</h3>
     <% @book.inspect %>
-      <h5 class="mt-5"><%= @book.title %><br></h5>
-      <h5><%= @book.author %></h5><br>
-      <div style="text-align: center">
-        <%= image_tag @book.book_image_url, size: '250x300' %>
+      <div>
+        <%= image_tag @book.book_image_url, size: '150x200' %>
+        <h1><%= @book.title %></h1>
+        <h3>著者<%= @book.author %></h3>
       </div>
-    <table class="table table-hover">
-      <thead>
-        <th></th>
-        <th>感想</th>
-        <th>読了時間（時）</th>
-        <th></th>
-      </thead>
+   <table class="table">
       <tbody>
         <% @posts.each do |posts| %>
         <tr>
           <td><%= link_to public_user_path(posts.user) do %>
               <%= image_tag posts.user.get_profile_image(50,50) %>
-              <% end %></td>
+              <% end %>
+              <%= posts.user.name %>さんの感想</td>
             <td><%= posts.comment %></td>
             <td><%= posts.readingtime %>時間</td>
             <td><%= link_to "詳細", public_post_path(posts.id) %></td>
