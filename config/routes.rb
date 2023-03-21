@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     get 'books/search'
     get 'posts/search'
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
     resources :books, only: [:show, :create]
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resources :post_comments, only: [:create, :destroy]

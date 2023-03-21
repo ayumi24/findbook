@@ -7,6 +7,6 @@
   <%= f.collection_select(:tag_id, @tags, :id, :tagname) %>
   <h6>読了時間</h6>
   <%= f.text_field :readingtime %>時間<br>
-  <%= f.submit '編集完了' %>
+  <%= f.submit '編集完了', class: "btn btn-md btn-success" %>
   <% end %>
 </div>

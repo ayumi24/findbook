@@ -9,6 +9,14 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
+  def self.guest
+    find_or_create_by!(email: 'guest@test.com') do |user|
+      user.password = SecureRandom.urlsafe_base64 #ランダムなパスワードを作成
+      user.password_confirmation = user.password
+      user.name = "ゲストユーザー" #ゲストログインした場合のニックネーム
+    end
+  end
+
   def get_profile_image(width,height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

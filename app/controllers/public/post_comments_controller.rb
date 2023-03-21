@@ -10,8 +10,7 @@ class Public::PostCommentsController < ApplicationController
     redirect_to public_post_path(post.id)
   end
 
-  def show
-  end
+
 
   def destroy
   end
