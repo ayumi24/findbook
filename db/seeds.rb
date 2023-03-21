@@ -11,6 +11,7 @@ Admin.create!(email: "ayumisasaki1124@gmail.com", password: "ayumi1124")
 Tag.create([
   { tagname: "コメディ" },
   { tagname: "ミステリー" },
+  { tagname: "ホラー" },
   { tagname: "ファンタジー" },
   { tagname: "アクション" },
   { tagname: "恋愛" },
