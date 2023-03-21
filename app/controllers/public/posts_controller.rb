@@ -22,10 +22,34 @@ class Public::PostsController < ApplicationController
       render :new
     end
   end
+  
+  def search
+    @posts = Post.all
+      if params[:tag_ids]
+        @posts = []
+        params[:tag_ids].each do |key, value|
+          if value == "1"
+            tag_posts = Tag.find_by(tagname: key).posts
+            @posts = @posts.empty? ? tag_posts : @posts & tag_posts
+          end
+        end
+      end
+    @books = Book.includes(:posts)
+  end
 
   def index
+    @posts = Post.all
+      if params[:tag_ids]
+        @posts = []
+        params[:tag_ids].each do |key, value|
+          if value == "1"
+            tag_posts = Tag.find_by(tagname: key).posts
+            @posts = @posts.empty? ? tag_posts : @posts & tag_posts
+          end
+        end
+      end
     @books = Book.includes(:posts)
-    @posts = current_user.posts
+    #@posts = current_user.posts
   end
 
   def show

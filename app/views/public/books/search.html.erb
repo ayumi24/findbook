@@ -4,10 +4,9 @@
   <%= f.submit "検索", class: "btn btn-sm btn-primary" %>
 <% end %>
 
-  <table class="table table-hover">
+  <table class="table">
   <% if @books %>
     <% @books.each do |book| %>
-    <%#= link_to book.title, public_book_path(book.id) %>
     <tr>
       <td><%= image_tag(book.book_image_url + '?_ex=70x70') %></td>
       <td>
