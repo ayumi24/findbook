@@ -22,7 +22,7 @@ class Public::PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def search
     @posts = Post.all
       if params[:tag_ids]
@@ -60,6 +60,7 @@ class Public::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tags = Tag.all
   end
 
   def update

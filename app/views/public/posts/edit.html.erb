@@ -3,6 +3,8 @@
   <%= form_with model: @post, url: public_post_path, method: :patch do |f| %>
   <h6>感想</h6>
   <%= f.text_area :comment %><br>
+  <h6>ジャンル</h6>
+  <%= f.collection_select(:tag_id, @tags, :id, :tagname) %>
   <h6>読了時間</h6>
   <%= f.text_field :readingtime %>時間<br>
   <%= f.submit '編集完了' %>
