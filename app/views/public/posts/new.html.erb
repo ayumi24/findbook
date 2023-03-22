@@ -1,13 +1,13 @@
 <div class="container">
   <h3>レビュー作成</h3>
-  <%# if @post.errors.any? %>
-  <%#= @post.errors.count %>件のエラーが発生しました
+  <% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラーが発生しました
   <ul>
-    <%# @post.errors.full_messages.each do |message| %>
-      <li><%#= message %></li>
-    <%# end %>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
   </ul>
-<%# end %>
+<% end %>
   <% @book.isbn %>
 
   <div style="text-align: center">
@@ -15,25 +15,18 @@
     <%= @book.title %>
   </div>
 
-    <%= form_with model: @book, url: public_posts_path, method: :post do |f| %>
-      <%= @book.errors.full_messages.inspect %>
-      <%= f.hidden_field :book_image_url %>
-      <%= f.hidden_field :item_url %>
-      <%= f.hidden_field :title %>
-      <%= f.hidden_field :author %>
-      <%= f.hidden_field :isbn %>
+  <%= form_with model: [:public, @post] do |f| %>
+    <%= @post.errors.full_messages.inspect %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+    <h6>感想</h6>
+    <%= f.text_area :comment,  class: 'form-control',size: "80x5" %>
+    <h6>タグ</h6>
+    <p>最も当てはまると思うジャンルを選択してください</p>
+    <%= f.collection_select(:tag_id, @tags, :id, :tagname) %>
+    <h6>読了時間目安</h6>
+    <%= f.text_field :readingtime %>時間
+    <p>1時間未満の場合は小数点で入力してください。（例）30分の場合→0.5時間</p>
 
-    <%= fields_for :post do |ff| %>
-      <%= ff.hidden_field :user_id, value: current_user.id %>
-      <h6>感想</h6>
-      <%= ff.text_area :comment,  class: 'form-control',size: "80x5" %>
-      <h6>タグ</h6>
-      <p>最も当てはまると思うジャンルを選択してください</p>
-      <%= ff.collection_select(:tag_id, @tags, :id, :tagname) %>
-      <h6>読了時間目安</h6>
-      <%= ff.text_field :readingtime %>時間
-      <p>1時間未満の場合は小数点で入力してください。（例）30分の場合→0.5時間</p>
-    <% end %>
     <%= f.submit "レビューを作成", class: "btn btn-md btn-success" %>
   <% end %>
 </div>

@@ -1,26 +1,37 @@
 class Public::PostsController < ApplicationController
   before_action :correct_user, only: %i(destroy)
   def new
+    @book = Book.find_or_initialize_by(isbn: params[:isbn])
+    if @book.new_record?
+      results = RakutenWebService::Books::Book.search(isbn: params[:isbn])
+      rakuten_book = results.first
+      if rakuten_book.present?
+        @book.assign_attributes(
+          title: rakuten_book.title,
+          author: rakuten_book.author,
+          item_url: rakuten_book.item_url,
+          book_image_url: rakuten_book.mediumImageUrl.gsub('?_ex=120x120', '')
+        )
+        @book.save!
+      end
+    else
+      post = @book.posts.find_by(user_id: current_user.id)
+      if post.present?
+        redirect_to public_post_path(post), notice: "既にレビューした書籍です"
+      end
+    end
+
     @tags = Tag.all
-    @book = Book.find_or_initialize_by(isbn: params[:book][:isbn])
-    post = @book.posts.where(user_id: current_user.id)
-    flash[:notice] = "既にレビューした書籍です"
-    redirect_to public_post_path(post.first) if post.exists?
-    @book.assign_attributes(book_params) if @book.new_record?
-    @book.posts.build
+    @post = Post.new
   end
 
   def create
-    @book = Book.find_or_initialize_by(isbn: params[:book][:isbn])
-    if @book.new_record?
-      @book.assign_attributes(book_params)
-      @book.save!
-    end
-    @post = @book.posts.build(post_params)
-    if @post.save!
-      flash[:notice] = "レビュー作成しました！"
-      redirect_to public_book_path(@book)
+    @post = current_user.posts.new(post_params)
+    if @post.save
+      redirect_to public_book_path(post_params[:book_id]), notice: "レビュー作成しました！"
     else
+      @book = Book.find(post_params[:book_id])
+      @tags = Tag.all
       render :new
     end
   end
@@ -85,11 +96,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :comment, :readingtime, :tag_id)
-  end
-
-  def book_params
-    params.require(:book).permit(:title, :author, :isbn, :item_url, :book_image_url)
+    params.require(:post).permit(:book_id, :comment, :readingtime, :tag_id)
   end
 
   def correct_user

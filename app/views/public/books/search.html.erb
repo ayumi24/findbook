@@ -22,14 +22,7 @@
       <td><% book.isbn %></td>
       <td>
         <% if current_user %>
-          <%= form_with model: book, url: new_public_post_path, method: :get do |f| %>
-            <%= f.hidden_field :book_image_url %>
-            <%= f.hidden_field :item_url %>
-            <%= f.hidden_field :title %>
-            <%= f.hidden_field :author %>
-            <%= f.hidden_field :isbn %>
-            <%= f.submit "レビューする", class: "btn btn-primary" %>
-          <% end %>
+          <%= link_to "レビューする", new_public_post_path(isbn: book.isbn), class: "btn btn-primary" %>
         <% end %>
       </td>
     </tr>
