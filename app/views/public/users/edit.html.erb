@@ -1,5 +1,13 @@
 <%= form_with model: @user, url: public_user_path(@user.id), method: :patch do |f| %>
 <div class="container">
+  <% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <h3><%= @user.name %>のユーザー情報編集</h4>
   <div class="field text-center my-2">
     <%= f.label :ニックネーム %><br>
