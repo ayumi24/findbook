@@ -14,6 +14,6 @@
  *= require_self
  */
 
- header  {
-  font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
+ header, .nav-item {
+font-family: 'Edu NSW ACT Foundation', cursive, sans-serif;
 }

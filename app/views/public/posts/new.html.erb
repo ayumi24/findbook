@@ -1,5 +1,13 @@
 <div class="container">
   <h3>レビュー作成</h3>
+  <%# if @post.errors.any? %>
+  <%#= @post.errors.count %>件のエラーが発生しました
+  <ul>
+    <%# @post.errors.full_messages.each do |message| %>
+      <li><%#= message %></li>
+    <%# end %>
+  </ul>
+<% end %>
   <% @book.isbn %>
 
   <div style="text-align: center">
