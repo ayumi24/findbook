@@ -4,6 +4,7 @@ class Public::PostsController < ApplicationController
     @tags = Tag.all
     @book = Book.find_or_initialize_by(isbn: params[:book][:isbn])
     post = @book.posts.where(user_id: current_user.id)
+    flash[:notice] = "既にレビューした書籍です"
     redirect_to public_post_path(post.first) if post.exists?
     @book.assign_attributes(book_params) if @book.new_record?
     @book.posts.build
@@ -17,6 +18,7 @@ class Public::PostsController < ApplicationController
     end
     @post = @book.posts.build(post_params)
     if @post.save!
+      flash[:notice] = "レビュー作成しました！"
       redirect_to public_book_path(@book)
     else
       render :new

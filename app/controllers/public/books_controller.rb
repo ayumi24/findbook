@@ -18,14 +18,14 @@ class Public::BooksController < ApplicationController
       end
     end
   end
-  
+
   def create
     @book = Book.find_or_initialize_by(isbn: params[:book][:isbn])
     if @book.new_record?
       @book.assign_attributes(book_params)
       @book.save!
     end
-
+    flash[:notice] = "レビューを作成しました！"
     redirect_to public_book_path(@book.id)
   end
 
