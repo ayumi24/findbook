@@ -1,8 +1,4 @@
-<div>
-  <%= flash[:notice] %>
-</div>
 <div class="container">
-  <h4><%= @post.user.name %>さんのレビュー詳細</h4>
   <% @post.book.inspect %>
   <div class="row">
     <%= image_tag @post.book.book_image_url, size: '150x200' %>
@@ -12,13 +8,16 @@
     </div>
   </div>
   <div class="row my-2">
-    <%= @post.comment %>
+    <h4><%= @post.user.name %>さんのレビュー詳細</h4>
   </div>
   <div class="row my-2">
-    読了時間：<%= @post.readingtime %>時間
+    <strong>レビュー：</strong><%= @post.comment %>
   </div>
   <div class="row my-2">
-    ジャンル：<%= @tag.tagname %>
+    <strong>読了時間：</strong><%= @post.readingtime %>時間
+  </div>
+  <div class="row my-2">
+    <strong>ジャンル：</strong><%= @tag.tagname %>
   </div>
   <div class="row my-2">
     <% if @post.user == current_user %>
@@ -35,8 +34,8 @@
   </div>
   <div class="row my-2">
     <%= form_with model: [@post, @post_comment], url: public_post_post_comments_path(@post.id) do |f| %>
-      <%= f.text_area :comment, placeholder: "新しいコメントを入力" %>
-      <%= f.submit "送信" %>
+      <%= f.text_area :comment, placeholder: "新しいコメントを入力" %><br>
+      <%= f.submit "送信", class:"btn btn-sm btn-primary" %>
     <% end %>
   </div>
 </div>

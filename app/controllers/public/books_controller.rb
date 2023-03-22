@@ -51,6 +51,3 @@ private
     }
   end
 end
-
-#ページネーションを追加したい
-#.page(params[:page])

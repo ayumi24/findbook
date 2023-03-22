@@ -3,13 +3,12 @@
     <h3>会員ログイン</h3>
   </div>
       <%= form_with model: @user, url: new_user_session_path do |f| %>
-
         <div class="field text-center my-2">
-          <%= f.label :ニックネーム %>
+          <%= f.label :ニックネーム %><br>
           <%= f.text_field :name %>
-      </div>
+        </div>
         <div class="field text-center my-2">
-          <%= f.label :パスワード %>
+          <%= f.label :パスワード %><br>
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
         <% if devise_mapping.rememberable? %>
@@ -25,6 +24,4 @@
 
     <h6 class="text-center my-4">会員登録がまだの方は
     <%= link_to "こちら", new_user_registration_path %>から登録してください</h6>
-
-
 </div>

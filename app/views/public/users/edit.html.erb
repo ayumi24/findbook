@@ -1,22 +1,23 @@
 <%= form_with model: @user, url: public_user_path(@user.id), method: :patch do |f| %>
 <div class="container">
-<h4><%= @user.name %>のユーザー情報編集</h4>
-  <table class="table-borderless">
-    <%= f.label :ニックネーム %>
+<h3><%= @user.name %>のユーザー情報編集</h4>
+  <div class="field text-center my-2">
+    <%= f.label :ニックネーム %><br>
     <%= f.text_field :name %>
-  </table>
+  </div>
 
-  <table class="table-borderless">
-    <%= f.label :プロフィール画像 %>
+  <div class="field text-center my-2">
+    <%= f.label :プロフィール画像 %><br>
     <%= f.file_field :profile_image, accept: "image/*" %>
-  </table>
+  </div>
 
-  <table class="table-borderless">
-    <%= f.label :メールアドレス %>
+  <div class="field text-center my-2">
+    <%= f.label :メールアドレス %><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </table>
-
-<%= f.submit "保存する", class: "btn btn-sm btn-success" %>
-<%= link_to "退会する", unsubscribe_public_users_path, class: "btn btn-sm btn-danger" %>
+  </div>
+  <div class="field text-center my-2">
+    <%= f.submit "保存する", class: "btn btn-sm btn-success" %>
+    <%= link_to "退会する", unsubscribe_public_users_path, class: "btn btn-sm btn-danger" %>
+  </div>
 <% end %>
 </div>

@@ -14,6 +14,6 @@
  *= require_self
  */
 
- .navbar-brand {
-font-family: 'Edu NSW ACT Foundation', cursive, sans-serif;
+ header, .container, .notice {
+font-family: 'Shippori Mincho', serif;
 }

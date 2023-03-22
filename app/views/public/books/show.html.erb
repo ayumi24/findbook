@@ -1,13 +1,15 @@
-<div>
-  <%= flash[:notice] %>
-</div>
 <div class="container">
+  <div class="alert alert-success" role="alert">
+    <%= flash[:notice] %>
+  </div>
   <h3>書籍詳細</h3>
     <% @book.inspect %>
-      <div>
+      <div class="row">
         <%= image_tag @book.book_image_url, size: '150x200' %>
-        <h3><%= @book.title %></h3>
+        <div class="col">
+        <h3 class="mt-3"><%= @book.title %></h3>
         <h5>著者：<%= @book.author %></h5>
+        </div>
       </div>
    <table class="table">
       <tbody>
