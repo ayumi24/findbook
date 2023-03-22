@@ -12,7 +12,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest #userモデルで定義したメソッド
     sign_in user
-    redirect_to root_path
+    redirect_to public_user_path(user.id)
   end
 
   # GET /resource/sign_in
