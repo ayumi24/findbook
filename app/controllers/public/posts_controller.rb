@@ -10,7 +10,7 @@ class Public::PostsController < ApplicationController
           title: rakuten_book.title,
           author: rakuten_book.author,
           item_url: rakuten_book.item_url,
-          book_image_url: rakuten_book.mediumImageUrl.gsub('?_ex=120x120', '')
+          book_image_url: rakuten_book.medium_image_url.gsub('?_ex=120x120', '')
         )
         @book.save!
       end
