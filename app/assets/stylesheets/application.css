@@ -13,11 +13,10 @@
  *= require_tree .
  *= require_self
  */
- 
- div {
+
+div {
      padding: 0;
      margin: 0;
-     
  }
 
  header, .container, .notice {
