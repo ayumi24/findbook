@@ -1,2 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+div {
+     padding: 0;
+     margin: 0;
+ }
+
+ header, .container, .notice {
+font-family: 'Shippori Mincho', serif;
+}
+
+ul{
+  list-style: none;
+}
+
+.pagenate{
+  justify-content: center;
+}

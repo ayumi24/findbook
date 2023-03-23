@@ -29,4 +29,9 @@
     <% end %>
   <% end %>
   </table>
+  <div class="pagenate">
+    <% if @books %>
+      <%= paginate @books %>
+    <% end %>
+  </div>
 </div>

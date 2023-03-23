@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
+  has_one_attached :book_image_url
   has_one_attached :profile_image
 
   def self.guest
@@ -27,4 +28,5 @@ class User < ApplicationRecord
     end
       profile_image.variant(resize_to_limit: [width, height]).processed
   end
+
 end

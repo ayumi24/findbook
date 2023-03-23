@@ -28,7 +28,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to public_book_path(post_params[:book_id]), notice: "レビュー作成しました！"
+      redirect_to public_book_path(post_params[:book_id])
     else
       @book = Book.find(post_params[:book_id])
       @tags = Tag.all

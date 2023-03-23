@@ -25,7 +25,10 @@
     <tbody>
       <% @books.each do |books| %>
       <tr>
-      <td class="text-center"><%= link_to books.title, public_book_path(books.id) %></td>
+      <td class="text-center"><%= link_to public_book_path(books.id) do %>
+      <%= image_tag books.book_image_url, size: '150x200' %><br>
+      <%= books.title %>
+      <% end %></td>
       <td class="text-center"><%= books.author %></td>
       <td class="text-center"><%= link_to '詳細', public_post_path(posts_user_id(books.posts, @user.id)) %></td>
       </tr>

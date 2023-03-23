@@ -10,12 +10,14 @@ class Public::BooksController < ApplicationController
       results = RakutenWebService::Books::Book.search({
         title: @title,
       })
-      @books = results.map do |result|
+      book_array = results.map do |result|
         attributes = read(result)
         book = Book.find_or_initialize_by(isbn: attributes[:isbn])
         book.assign_attributes(attributes) if book.new_record?
         book
       end
+
+      @books = Kaminari.paginate_array(book_array).page(params[:page])
     end
   end
 
