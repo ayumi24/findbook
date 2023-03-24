@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-
-  namespace :public do
-    get 'post_comments/new'
-    get 'post_comments/create'
-    get 'post_comments/show'
-    get 'post_comments/destroy'
-  end
+  
   root to: "public/homes#top"
 
   devise_for :admin, skip:[:registrations, :passwords], controllers: {

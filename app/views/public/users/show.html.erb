@@ -16,7 +16,7 @@
   <% if @user == current_user %>
    <%= link_to '新しく本を探す', public_books_search_path, class: "btn btn-sm btn-dark" %>
   <% end %>
-  <div class="row">
+  <div class="row mt-4">
     <% @books.each do |books| %>
     <div class="col">
       <%= link_to public_book_path(books.id) do %>
