@@ -1,7 +1,10 @@
-<h4>退会画面</h4>
-<h3>本当に退会しますか？</h3>
-<h4>退会すると今まで自分がレビューした本の履歴が見れなくなり、<br>
-レビューをする事ができなくなります。<br>
-退会する場合は「退会する」をクリックしてください。</h4>
-<%= link_to "退会しない", public_user_path(current_user) %>
-<%= link_to "退会する", withdraw_public_users_path, method: :patch, data: { confirm: "本当に退会しますか？" } %>
+<div class="container">
+  <h3 class="text-center">本当に退会しますか？</h3>
+    <h5 class="text-center">退会すると今まで自分がレビューした本の履歴が見れなくなり、<br>
+    レビューをする事ができなくなります。<br>
+    退会する場合は「退会する」をクリックしてください。</h5>
+  <div class="text-center">
+    <%= link_to "退会しない", public_user_path(current_user), class: "btn btn-sm btn-primary" %>
+    <%= link_to "退会する", withdraw_public_users_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-sm btn-danger" %>
+  </div>
+</div>

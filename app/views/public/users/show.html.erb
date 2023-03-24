@@ -16,25 +16,18 @@
   <% if @user == current_user %>
    <%= link_to '新しく本を探す', public_books_search_path, class: "btn btn-sm btn-dark" %>
   <% end %>
-  <table class="mt-4">
-    <thead>
-      <th class="text-center col-5">タイトル</th>
-      <th class="text-center col-5">著者</th>
-      <th class="text-center col-2">レビュー詳細</th>
-    </thead>
-    <tbody>
-      <% @books.each do |books| %>
-      <tr>
-      <td class="text-center"><%= link_to public_book_path(books.id) do %>
-      <%= image_tag books.book_image_url, size: '150x200' %><br>
-      <%= books.title %>
-      <% end %></td>
-      <td class="text-center"><%= books.author %></td>
-      <td class="text-center"><%= link_to '詳細', public_post_path(posts_user_id(books.posts, @user.id)) %></td>
-      </tr>
+  <div class="row">
+    <% @books.each do |books| %>
+    <div class="col">
+      <%= link_to public_book_path(books.id) do %>
+        <%= image_tag books.book_image_url, size: '150x200' %><br>
+        <%= books.title %><br>
       <% end %>
-    </tbody>
-  </table>
+      <%= books.author %><br>
+      <%= link_to '詳細', public_post_path(posts_user_id(books.posts, @user.id)) %>
+    </div>
+      <% end %>
+  </div>
 </div>
 
 

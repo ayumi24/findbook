@@ -6,11 +6,16 @@ div {
      margin: 0;
  }
 
- header, .container, .notice {
-font-family: 'Shippori Mincho', serif;
+header, .notice, .col {
+ font-family: 'Shippori Mincho', serif;
 }
 
-ul{
+.container{
+  margin-top: 15px;
+  font-family: 'Shippori Mincho', serif;
+}
+
+ul, li{
   list-style: none;
 }
 
