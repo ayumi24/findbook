@@ -3,5 +3,5 @@
       <% Tag.all.each do |t| %>
           <li><%= check_box :tag_ids, t.tagname %><%= t.tagname %></li>
       <% end %>
-      <%= submit_tag '検索', class: "btn btn-md btn-success" %>
+      <%= submit_tag '検索', class: "btn btn-sm btn-success" %>
   <% end %>
