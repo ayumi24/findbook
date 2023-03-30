@@ -26,3 +26,31 @@ font-family: 'Shippori Mincho', serif;
 ul{
   list-style: none;
 }
+
+header, .notice, .col {
+ font-family: 'Shippori Mincho', serif;
+}
+
+.container{
+  margin-top: 15px;
+  font-family: 'Shippori Mincho', serif;
+}
+
+ul, li{
+  list-style: none;
+}
+
+body {
+  background-color: #F2F2F2 !important;
+}
+
+.about {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 15px;
+  background-image: url('book.jpg');
+}
+
+.abouttext{
+  color: #f8f8ff
+}
