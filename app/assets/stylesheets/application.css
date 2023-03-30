@@ -19,7 +19,7 @@ div {
      margin: 0;
  }
 
- header, .container, .notice {
+ header, .container, .notice, .col {
 font-family: 'Shippori Mincho', serif;
 }
 
@@ -31,8 +31,13 @@ header, .notice, .col {
  font-family: 'Shippori Mincho', serif;
 }
 
+section{
+  font-family: 'Shippori Mincho', serif;
+  margin: 10px;
+}
+
 .container{
-  margin-top: 15px;
+  margin: 15px;
   font-family: 'Shippori Mincho', serif;
 }
 
@@ -42,15 +47,34 @@ ul, li{
 
 body {
   background-color: #F2F2F2 !important;
+  min-height: 100vh;
+}
+
+.about-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .about {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  height: 268px;
+  width: 100%;
   margin: 15px;
   background-image: url('book.jpg');
 }
 
+.aboutimg{
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .abouttext{
-  color: #f8f8ff
+  color: #f8f8ff;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
