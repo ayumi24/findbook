@@ -1,7 +1,11 @@
 <div class="container">
-  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+  <h3>ジャンルで探す</h3>
+  <p>検索したいジャンルを１つ選択して検索ボタンをクリックしてください</p>
+  <div class="tag">
+    <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
       <% Tag.all.each do |t| %>
-          <li><%= check_box :tag_ids, t.tagname %><%= t.tagname %></li>
+        <li class="mb-3"><%= check_box :tag_ids, t.tagname %><%= t.tagname %></li>
       <% end %>
-      <%= submit_tag '検索', class: "btn btn-sm btn-success" %>
-  <% end %>
+    <%= submit_tag '検索', class: "btn btn-sm btn-success" %>
+    <% end %>
+  </div>

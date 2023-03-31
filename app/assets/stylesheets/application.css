@@ -23,6 +23,14 @@ div {
 font-family: 'Shippori Mincho', serif;
 }
 
+.navbar-brand {
+  font-size: 25px !important;
+}
+
+.nav-item{
+  font-size: 18px;
+}
+
 ul{
   list-style: none;
 }
@@ -56,25 +64,29 @@ body {
   align-items: center;
 }
 
-.about {
+.aboutimg {
   height: 268px;
   width: 100%;
-  margin: 15px;
   background-image: url('book.jpg');
 }
 
-.aboutimg{
-  padding-left: 15px;
-  padding-right: 15px;
+.about{
+  height: 268px;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
 .abouttext{
   color: #f8f8ff;
+
 }
 
 .wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
+}
+
+.tag{
+  font-size: 18px;
 }
