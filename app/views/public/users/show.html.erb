@@ -1,4 +1,7 @@
 <div class="container">
+  <div>
+    <%= flash[:notice] %>
+  </div>
   <% if @user == current_user %>
     <h3>マイページ</h3>
   <% else %>
