@@ -1,4 +1,7 @@
 <div class="container">
+  <div>
+    <%= flash[:notice] %>
+  </div>
   <% @post.book.inspect %>
   <div class="row">
     <%= image_tag @post.book.book_image_url, size: '150x200' %>
