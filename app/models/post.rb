@@ -5,5 +5,5 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   validates :comment, presence: true
-  validates :readingtime, presence: true
+  validates :readingtime, presence: true, numericality: true
 end
