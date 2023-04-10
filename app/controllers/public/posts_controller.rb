@@ -72,6 +72,7 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @post = Post.find(params[:id])
     @tags = Tag.all
   end
