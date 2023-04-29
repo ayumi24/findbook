@@ -27,7 +27,6 @@ class Public::BooksController < ApplicationController
       @book.assign_attributes(book_params)
       @book.save!
     end
-    flash[:notice] = "レビューを作成しました！"
     redirect_to public_book_path(@book.id)
   end
 
