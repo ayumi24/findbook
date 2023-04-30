@@ -1,5 +1,8 @@
 class Public::PostsController < ApplicationController
-  before_action :correct_user, only: %i(destroy)
+  #ログインしているユーザーのみ利用可能
+  before_action :authenticate_user!
+  before_action :correct_user, only: %i(edit, update, destroy)
+  
   def new
     @book = Book.find_or_initialize_by(isbn: params[:isbn])
     if @book.new_record?
@@ -101,7 +104,9 @@ class Public::PostsController < ApplicationController
   end
 
   def correct_user
-    @post = current_user.posts.find_by(id: params[:id])
-    redirect_to root_url unless @post
+     @post = current_user.posts.find_by(id: params[:id])
+    unless @post.user.id == current_user.id
+     redirect_to root_url unless @post
+    end
   end
 end
